@@ -1,2 +1,107 @@
-# choose-the-area
-area of shapes
+#include<iostream>
+using namespace std;
+class shape
+{
+  public :
+ virtual void area()=0;
+ };
+ class rect :public shape
+ {
+    float a,b;
+    public:
+  rect()
+   { cout<<"length = "<<endl;
+    cin>>a;
+    cout<<"breadth = "<<endl;
+    cin>>b;
+   }
+  void area()
+  {
+      cout<< "area ="<< (a*b)<<endl;
+  }
+ };
+class square :public shape
+{
+    float s;
+    public:
+    square()
+    {cout<<"side = "<<endl;
+    cin>>s;
+    }
+void area()
+{
+    cout<<"area = "<<(s*s)<<endl;
+}
+};
+class triangle : public shape
+{
+    float b,h;
+    public:
+    triangle()
+    {cout<<"base of the triangle"<<endl;
+    cin>>b;
+    cout<<"height of the triangle"<<endl;
+    cin>>h;
+    }
+void area()
+{
+    cout<<"area = "<<(0.5*b*h);
+}
+};
+class circle : public shape
+{
+  float r;
+  public:
+  circle()
+  {cout<<"radius of the circle is "<<endl;
+  cin>>r;
+  }
+  void area()
+ {
+     cout<<"area is = "<<(3.14*r*r)<<endl;
+ }
+};
+int main()
+{
+    shape *sh;
+    rect r;
+    triangle t;
+    circle c;
+    square s;
+    int i;
+    
+    
+    cout<<"for rectangle's are press 1,"<<endl<<"for triangle press 2"<<endl<<"for circle press 3"<<endl<<"for square 4"<<endl;
+    cin>>i;
+    switch(i)
+    {
+        case 1:
+            {
+                sh=&r;
+                r.area();
+                break;
+            }
+        case 2:
+            {
+                sh=&t;
+                t.area();
+                break;
+            }    
+            
+        case 3:
+            {
+                sh=&c;
+                c.area();
+                break;
+            }
+        case 4:
+            {
+                sh=&s;
+                s.area();
+                break;
+            }
+        default:
+        cout<<"sorry try again";
+    }
+    
+}
